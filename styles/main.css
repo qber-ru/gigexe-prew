@@ -1,0 +1,71 @@
+:root {
+    --index: calc(1vw + 1vh);
+    --size30: calc(var(--index) * 1);
+
+    --color-bg: #121212;
+    --color-accent: #00A8FF;
+    --color-light: rgba(255, 255, 255, 0.80);
+    --color-white: #fff;
+}
+
+html, body {
+    box-sizing: border-box;
+}
+
+*,*::before,*::after {
+    box-sizing: inherit;
+}
+
+@font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('../fonts/Inter-Regular.woff2') format('woff2'),
+    url('../fonts/Inter-Regular.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url('../fonts/Inter-Bold.woff2') format('woff2'),
+    url('../fonts/Inter-Bold.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('../fonts/Ubuntu-Regular.woff2') format('woff2'),
+    url('../fonts/Ubuntu-Regular.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url('../fonts/Ubuntu-Bold.woff2') format('woff2'),
+    url('../fonts/Ubuntu-Bold.woff') format('woff');
+}
+
+body {
+    background-color: var(--color-bg);
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    color: var(--color-white);
+}
+
+
+
+
