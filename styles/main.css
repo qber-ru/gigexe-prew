@@ -1,11 +1,18 @@
 :root {
-    --index: calc(1vw + 1vh);
+    --index: calc(1vw + 1vh); /* 30px */
+    --size24: calc(var(--index) * 0.8);
     --size30: calc(var(--index) * 1);
+    --size56: calc(var(--index) * 1.867);
+    --size96: calc(var(--index) * 3.2);
+    --size264: calc(var(--index) * 8.8);
 
     --color-bg: #121212;
     --color-accent: #00A8FF;
+    --color-grad-accent: linear-gradient(132deg, #00D1FF -59.41%, #0CF -28.29%, #00BEFF 4.9%, #00A8FF 42.25%, #08F 79.59%, #0060FF 116.93%, #003BFF 148.05%);
     --color-light: rgba(255, 255, 255, 0.80);
     --color-white: #fff;
+
+    --br-radius-56: 56px;
 }
 
 html, body {
@@ -66,6 +73,32 @@ body {
     color: var(--color-white);
 }
 
+a {
+    display: inline-block;
+    text-decoration: none;
+}
 
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
+.logo-top-img {
+    width: var(--size96);
+}
+
+.contacts {
+    width: var(--size264);
+    height: var(--size56);
+    font-size: 24px;
+    background: var(--color-grad-accent);
+    border-radius: var(--br-radius-56);
+    margin-left: auto;
+}
+
+.header-wrapper {
+    display: flex;
+    justify-content: center;
+}
 
