@@ -1,25 +1,41 @@
 :root {
     --index: calc(1vw + 1vh); /* 30px */
+    --size8: calc(var(--index) * 0.2667);
     --size24: calc(var(--index) * 0.8);
     --size30: calc(var(--index) * 1);
     --size56: calc(var(--index) * 1.867);
+    --size70: calc(var(--index) * 2.333);
+    --size72: calc(var(--index) * 2.4);
     --size96: calc(var(--index) * 3.2);
     --size264: calc(var(--index) * 8.8);
+    --size429: calc(var(--index) * 14.3);
+    --size560: calc(var(--index) * 18.667);
+    --size586: calc(var(--index) * 19.533);
+    --size599: calc(var(--index) * 19.96);
+    --size628: calc(var(--index) * 20.9335);
+    --size688: calc(var(--index) * 22.9335);
+
+    --button-mg-right: var(--size70);
 
     --color-bg: #121212;
     --color-accent: #00A8FF;
     --color-grad-accent: linear-gradient(132deg, #00D1FF -59.41%, #0CF -28.29%, #00BEFF 4.9%, #00A8FF 42.25%, #08F 79.59%, #0060FF 116.93%, #003BFF 148.05%);
     --color-light: rgba(255, 255, 255, 0.80);
     --color-white: #fff;
+    --color-text-dark: #121212;
+    --color-btn-hover: #019FFF;
 
     --br-radius-56: 56px;
+
+    --animation-time: 0.2s;
 }
 
 html, body {
     box-sizing: border-box;
+    height: 100%;
 }
 
-*,*::before,*::after {
+*, *::before, *::after {
     box-sizing: inherit;
 }
 
@@ -67,15 +83,22 @@ body {
     line-height: normal;
 }
 
-.wrapper {
-    display: flex;
-    flex-direction: column;
-    color: var(--color-white);
-}
-
 a {
     display: inline-block;
     text-decoration: none;
+}
+
+.btn {
+    border: none;
+    cursor: pointer;
+}
+
+.t-left {
+    text-align: left;
+}
+
+.t-right {
+    text-align: right;
 }
 
 .center {
@@ -84,21 +107,136 @@ a {
     align-items: center;
 }
 
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    color: var(--color-white);
+    min-height: 100%;
+    position: relative;
+}
+
+.header-wrapper {
+    padding-top: var(--size72);
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
 .logo-top-img {
     width: var(--size96);
+    margin: 0 auto;
+    transform: translateX(calc(100% + var(--button-mg-right)));
 }
 
 .contacts {
     width: var(--size264);
     height: var(--size56);
-    font-size: 24px;
+    font-size: var(--size24);
+    font-weight: 700;
+    color: var(--color-text-dark);
     background: var(--color-grad-accent);
     border-radius: var(--br-radius-56);
-    margin-left: auto;
+    margin-right: var(--button-mg-right);
+    transition: color var(--animation-time) ease-in-out, box-shadow var(--animation-time) ease-in-out;
 }
 
-.header-wrapper {
+.contacts:hover {
+    color: var(--color-white);
+    box-shadow: 0 0 24px 0 var(--color-btn-hover);
+}
+
+.main {
+    flex: 1 0 auto;
     display: flex;
+    align-items: center;
     justify-content: center;
 }
 
+.logo-main {
+    width: var(--size560);
+}
+
+.text-coming-soon {
+    width: var(--size264);
+    margin: 0 auto;
+    font-size: var(--size24);
+    line-height: 1;
+    color: var(--color-accent);
+}
+
+.coming-soon:not(:last-child) {
+    margin-bottom: var(--size8);
+}
+
+.footer {
+    flex: 0 0 auto;
+    padding-bottom: var(--size56);
+}
+
+.bg-top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    overflow: hidden;
+    z-index: -5;
+}
+
+.bg-top .default {
+    height: var(--size599);
+    max-width: fit-content;
+}
+
+.bg-bottom {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    overflow: hidden;
+    z-index: -5;
+}
+
+.bg-bottom .default {
+    height: var(--size429);
+    max-width: fit-content;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 3;
+    background: var(--color-bg);
+    backdrop-filter: blur(5px);
+    display: none;
+}
+
+.form-mail {
+    position: relative;
+    filter: drop-shadow(0px 0px 24px var(--color-accent));
+}
+
+.desktop-form {
+    width: var(--size688);
+    height: var(--size628);
+    background-image: url('../images/svg/desktop-mail.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top center;
+    
+}
